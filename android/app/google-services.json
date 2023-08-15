@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "914826629795",
+    "project_id": "napped-88189",
+    "storage_bucket": "napped-88189.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914826629795:android:f59ab6fa3ba556921d2516",
+        "android_client_info": {
+          "package_name": "com.jaino.napped"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914826629795-ed4klff9et8kj2evlsm696q77h0csf1f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jaino.napped",
+            "certificate_hash": "bd20aa69d65c307c64c94600984ca19d869f40d0"
+          }
+        },
+        {
+          "client_id": "914826629795-6fmsb3csfl3730nv1hj4sid0f7ac51lc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHhlfwd1m0aXB1kkXtRr3J2RFCFNAQAEo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914826629795-6fmsb3csfl3730nv1hj4sid0f7ac51lc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
