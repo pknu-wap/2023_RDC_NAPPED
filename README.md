@@ -50,6 +50,6 @@ https://discovered-trust-803.notion.site/kid-NAPPED-c95be5407d2b49078ef784fc43b6
 ### Strategy
 - [Github Flow](https://www.alexhyett.com/git-flow-github-flow/)
 <p align="center">
-  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1668070000889/rvf5Hx764.png" width="50%"/>
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1668070000889/rvf5Hx764.png" width="75%"/>
 </p>
 <br><br><br>
