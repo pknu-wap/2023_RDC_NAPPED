@@ -45,3 +45,13 @@ https://discovered-trust-803.notion.site/kid-NAPPED-c95be5407d2b49078ef784fc43b6
     - Firestore
     - Analytics, Crashlytics
 - Glide / Timber / Material3 Component
+<br><br><br>
+
+### Strategy
+- [Github Flow](https://www.alexhyett.com/git-flow-github-flow/)
+<p align="center">
+  <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1668070000889/rvf5Hx764.png" width="50%"/>
+</p>
+<br><br><br>
+
+From Jeongjaino 
