@@ -1,2 +1,4 @@
-# 2023_RDC_NAPPED
-2023_랜덤개발챌린지_NAPPED 
+Random Develop Challenge NAPPED 
+
+### 프로젝트 소개 
+https://discovered-trust-803.notion.site/kid-NAPPED-c95be5407d2b49078ef784fc43b673fa?pvs=4
