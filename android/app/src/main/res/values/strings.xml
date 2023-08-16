@@ -8,4 +8,14 @@
     <string name="employment_title">채용 공고</string>
     <string name="employment_chip">병역일터 공고</string>
     <string name="company_chip">병역지정업체</string>
+    <string name="deadline">마감일</string>
+    <string name="work_time">근무시간</string>
+    <string name="location">근무지역</string>
+    <string name="agent_kind">요원구분</string>
+    <string name="education">학력</string>
+    <string name="career">경력</string>
+    <string name="salary">급여</string>
+    <string name="work">담당업무</string>
+    <string name="note">비고</string>
+    <string name="assign_people">보충역/현역 배정 및 편입 인원</string>
 </resources>
