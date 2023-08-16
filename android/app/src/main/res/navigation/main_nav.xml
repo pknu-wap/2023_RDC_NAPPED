@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/employmentFragment">
+
+    <fragment
+        android:id="@+id/employmentFragment"
+        android:name="com.jaino.napped.employment.EmploymentFragment"
+        android:label="EmploymentFragment" />
+    <fragment
+        android:id="@+id/boardFragment"
+        android:name="com.jaino.napped.board.BoardFragment"
+        android:label="BoardFragment" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.jaino.napped.favorites.FavoritesFragment"
+        android:label="FavoritesFragment" />
+</navigation>
