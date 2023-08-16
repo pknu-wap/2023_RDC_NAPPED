@@ -35,7 +35,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":data"))
     implementation("com.google.dagger:hilt-android:2.46.1")
     kapt("com.google.dagger:hilt-compiler:2.46.1")
 }
