@@ -3,4 +3,9 @@
     <string name="employment">채용</string>
     <string name="favorites">관심</string>
     <string name="board">게시판</string>
+    <string name="back_button">뒤로가기 버튼</string>
+    <string name="search_button">검색 버튼</string>
+    <string name="employment_title">채용 공고</string>
+    <string name="employment_chip">병역일터 공고</string>
+    <string name="company_chip">병역지정업체</string>
 </resources>
