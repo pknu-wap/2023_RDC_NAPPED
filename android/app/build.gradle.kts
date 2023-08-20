@@ -48,6 +48,7 @@ android {
 dependencies {
     implementation(project(":design_system"))
     implementation(project(":domain"))
+    implementation(project(":data"))
 
     //AndroidX
     implementation("androidx.core:core-ktx:1.10.1")
