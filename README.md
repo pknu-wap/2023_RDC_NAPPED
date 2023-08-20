@@ -42,7 +42,7 @@ https://discovered-trust-803.notion.site/kid-NAPPED-c95be5407d2b49078ef784fc43b6
 - Dagger Hilt
 - Kotlin Serialization / Ktor / Ktor Xml Converter
 - Firebase
-    - Firestore
+    - Firestore, RealtimeDatabase
     - Analytics, Crashlytics
 - Glide / Timber / Material3 Component
 <br><br><br>
