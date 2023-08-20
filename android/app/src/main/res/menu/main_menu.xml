@@ -3,16 +3,16 @@
     <item
         android:id="@+id/employmentFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/search"
         android:title="@string/employment"/>
     <item
         android:id="@+id/favoritesFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/favorites"
         android:title="@string/favorites"/>
     <item
         android:id="@+id/boardFragment"
         android:enabled="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/tip"
         android:title="@string/board"/>
 </menu>

@@ -7,13 +7,42 @@
     <fragment
         android:id="@+id/employmentFragment"
         android:name="com.jaino.napped.employment.EmploymentFragment"
-        android:label="EmploymentFragment" />
+        android:label="EmploymentFragment" >
+        <action
+            android:id="@+id/action_employmentFragment_to_boardFragment"
+            app:destination="@id/boardFragment" />
+        <action
+            android:id="@+id/action_employmentFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
     <fragment
         android:id="@+id/boardFragment"
         android:name="com.jaino.napped.board.BoardFragment"
-        android:label="BoardFragment" />
+        android:label="BoardFragment" >
+        <action
+            android:id="@+id/action_boardFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_boardFragment_to_employmentFragment"
+            app:destination="@id/employmentFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.jaino.napped.favorites.FavoritesFragment"
-        android:label="FavoritesFragment" />
+        android:label="FavoritesFragment" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_employmentFragment"
+            app:destination="@id/employmentFragment" />
+        <action
+            android:id="@+id/action_favoritesFragment_to_boardFragment"
+            app:destination="@id/boardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.jaino.napped.employment.InformationFragment"
+        android:label="InformationFragment" >
+        <action
+            android:id="@+id/action_informationFragment_to_employmentFragment"
+            app:destination="@id/employmentFragment" />
+    </fragment>
 </navigation>
