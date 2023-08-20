@@ -16,6 +16,8 @@
     <string name="career">경력</string>
     <string name="salary">급여</string>
     <string name="work">담당업무</string>
-    <string name="note">비고</string>
-    <string name="assign_people">보충역/현역 배정 및 편입 인원</string>
+    <string name="title">제목</string>
+    <string name="recruit_number">채용인원</string>
+    <string name="scrap">스크랩</string>
+    <string name="apply">지원하기</string>
 </resources>
