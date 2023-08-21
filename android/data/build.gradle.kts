@@ -57,7 +57,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.46.1")
     kapt("com.google.dagger:hilt-compiler:2.46.1")
 
-    // Ktor
+    // Ktor, Ktor Xml Serialization(xml_utils)
     val ktor_version = "2.3.3"
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-cio:$ktor_version")
@@ -70,8 +70,12 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
 
-    // DataStore Preference
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    // DataStore Preference, Kotlin Json Serialization
+    val room_version = "2.5.2"
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+
 
     // Timber
     implementation("com.jakewharton.timber:timber:5.0.1")

@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jaino.domain.model.Employment
+import com.jaino.domain.model.Favorite
 import com.jaino.napped.databinding.ItemEmploymentBinding
 
 class EmploymentAdapter(
-    private val onClick: () -> Unit
+    private val onClick: () -> Unit,
+    private val onChecked: (Favorite) -> Unit
 ): ListAdapter<Employment, EmploymentAdapter.EmploymentDataViewHolder>(callback) {
 
     companion object{
@@ -38,9 +40,24 @@ class EmploymentAdapter(
         : RecyclerView.ViewHolder(binding.root){
         fun bind(item : Employment){
             binding.model = item
+
             binding.cdItemEmployment.setOnClickListener {
                 onClick()
             }
+
+            binding.employmentItemFavorites.setOnCheckedChangeListener{ _, isChecked ->
+                if(isChecked){
+                    onChecked(
+                        item.toFavorite()
+                    )
+                }
+            }
         }
     }
+
+    private fun Employment.toFavorite() = Favorite(
+        company = company,
+        kind = kind,
+        location = location
+    )
 }

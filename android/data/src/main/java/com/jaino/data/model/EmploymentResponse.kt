@@ -81,6 +81,7 @@ fun EmploymentResponse.toDomain() = Employment(
     deadline = formatStringDate(magamDt),
     workTime = gmhyeongtaeNm,
     location = geunmujy,
+    kind = eopjongGbcdNm,
     agentKind = "$yeokjongBrcdNm | $yowonGbcdNm",
     education = "$cjhakryeok | $jggyeyeolCdNm",
     career = grNs + gyeongryeokGbcdNm,

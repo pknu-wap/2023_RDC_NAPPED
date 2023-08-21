@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.jaino.napped.favorites.FavoritesFragment"
+        android:name="com.jaino.napped.favorite.FavoritesFragment"
         android:label="FavoritesFragment" >
         <action
             android:id="@+id/action_favoritesFragment_to_employmentFragment"

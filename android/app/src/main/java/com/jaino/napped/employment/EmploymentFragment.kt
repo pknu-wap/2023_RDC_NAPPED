@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -11,14 +12,17 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jaino.domain.model.Favorite
 import com.jaino.napped.R
 import com.jaino.napped.databinding.FragmentEmploymentBinding
 import com.jaino.napped.employment.adapter.CompanyAdapter
 import com.jaino.napped.employment.adapter.EmploymentAdapter
+import com.jaino.napped.model.UiEvent
 import com.jaino.napped.model.UiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import timber.log.Timber
 
 @AndroidEntryPoint
 class EmploymentFragment: Fragment() {
@@ -62,7 +66,11 @@ class EmploymentFragment: Fragment() {
     }
 
     private fun initCompanyAdapter(){
-        companyAdapter = CompanyAdapter()
+        companyAdapter = CompanyAdapter(
+            onChecked = { favorite ->
+                addFavorite(favorite)
+            }
+        )
         binding.employmentList.adapter = companyAdapter
         binding.employmentList.layoutManager = LinearLayoutManager(requireContext())
     }
@@ -71,6 +79,9 @@ class EmploymentFragment: Fragment() {
         employmentAdapter = EmploymentAdapter(
             onClick = {
                 navigateToInformation()
+            },
+            onChecked = { favorite ->
+                addFavorite(favorite)
             }
         )
         binding.employmentList.adapter = employmentAdapter
@@ -106,6 +117,18 @@ class EmploymentFragment: Fragment() {
                     is UiState.Failure -> {}
                 }
             }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+        viewModel.employmentUiEvent.flowWithLifecycle(viewLifecycleOwner.lifecycle)
+            .onEach {
+                when(it){
+                    is UiEvent.Success -> {
+                    }
+
+                    is UiEvent.Failure -> {
+                        Timber.d(it.error)
+                    }
+                }
+            }
     }
 
     private fun navigateToInformation(){
@@ -113,6 +136,9 @@ class EmploymentFragment: Fragment() {
         findNavController().navigate(direction)
     }
 
+    private fun addFavorite(favorite: Favorite){
+        viewModel.addFavorite(favorite)
+    }
 
     override fun onDestroy() {
         _binding = null

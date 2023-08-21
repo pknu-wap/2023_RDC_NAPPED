@@ -6,9 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jaino.domain.model.Company
+import com.jaino.domain.model.Favorite
 import com.jaino.napped.databinding.ItemCompanyBinding
 
-class CompanyAdapter: ListAdapter<Company, CompanyAdapter.CompanyDataViewHolder>(callback) {
+class CompanyAdapter(
+    private val onChecked: (Favorite) -> Unit
+): ListAdapter<Company, CompanyAdapter.CompanyDataViewHolder>(callback) {
 
     companion object{
         val callback = object : DiffUtil.ItemCallback<Company>(){
@@ -35,6 +38,18 @@ class CompanyAdapter: ListAdapter<Company, CompanyAdapter.CompanyDataViewHolder>
         : RecyclerView.ViewHolder(binding.root){
         fun bind(item : Company){
             binding.company = item
+
+            binding.cbCompanyItem.setOnCheckedChangeListener { _, isChecked ->
+                if(isChecked){
+                    onChecked(item.toFavorite())
+                }
+            }
         }
     }
+
+    private fun Company.toFavorite() = Favorite(
+        company = company,
+        kind = kind,
+        location = location
+    )
 }

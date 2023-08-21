@@ -7,6 +7,7 @@ package com.jaino.domain.model
  * @property deadline 마감기한
  * @property workTime 근무시간
  * @property location 근무지역
+ * @property kind 업종
  * @property agentKind 요원구분
  * @property education 학력
  * @property career 경력
@@ -23,6 +24,7 @@ data class Employment(
     val deadline: String,
     val workTime: String,
     val location: String,
+    val kind : String,
     val agentKind: String,
     val education: String,
     val career: String,
@@ -36,6 +38,7 @@ data class Employment(
         "",
         "2024.01.01",
         "09:00 ~ 21:00",
+        "",
         "",
         "산업기능요원",
         "고등학교 졸업",
