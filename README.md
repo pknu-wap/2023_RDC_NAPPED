@@ -34,13 +34,14 @@ https://discovered-trust-803.notion.site/kid-NAPPED-c95be5407d2b49078ef784fc43b6
 
 ### Dependency
 - Kotlin
-    - 1.9.0v
+    - 1.8.20v
     - 26 - 33 Sdk
     - Coroutines / Flow
 - DataBinding && ViewBinding
 - Navigation Component
 - Dagger Hilt
 - Kotlin Serialization / Ktor / Ktor Xml Converter
+- Room Database
 - Firebase
     - Firestore, RealtimeDatabase
     - Analytics, Crashlytics
