@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -49,19 +48,24 @@ class EmploymentFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeData()
         initButton()
-        initEmploymentAdapter()
-        viewModel.getEmploymentList()
     }
 
     private fun initButton(){
         binding.employmentChip.setOnClickListener{
-            initEmploymentAdapter()
-            viewModel.getEmploymentList()
+            setEmploymentList()
         }
 
         binding.companyChip.setOnClickListener {
-            initCompanyAdapter()
-            viewModel.getCompanyList()
+            setCompanyList()
+        }
+
+        binding.cgEmployment.setOnCheckedStateChangeListener { _, checkedIds ->
+            if(checkedIds.first() == binding.companyChip.id){
+                setCompanyList()
+            }
+            else if(checkedIds.first() == binding.employmentChip.id){
+                setEmploymentList()
+            }
         }
     }
 
@@ -77,8 +81,8 @@ class EmploymentFragment: Fragment() {
 
     private fun initEmploymentAdapter(){
         employmentAdapter = EmploymentAdapter(
-            onClick = {
-                navigateToInformation()
+            onClick = { id ->
+                navigateToInformation(id)
             },
             onChecked = { favorite ->
                 addFavorite(favorite)
@@ -107,9 +111,7 @@ class EmploymentFragment: Fragment() {
             .onEach {
                 when(it){
                     is UiState.Success -> {
-                        if(it.data.isNotEmpty()) {
-                            employmentAdapter.submitList(it.data)
-                        }
+                        employmentAdapter.submitData(it.data)
                     }
 
                     is UiState.Init -> {}
@@ -128,11 +130,23 @@ class EmploymentFragment: Fragment() {
                         Timber.d(it.error)
                     }
                 }
-            }
+            }.launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    private fun navigateToInformation(){
-        val direction = EmploymentFragmentDirections.actionEmploymentFragmentToInformationFragment()
+    private fun setEmploymentList(){
+        initEmploymentAdapter()
+        viewModel.getEmploymentList()
+    }
+
+    private fun setCompanyList(){
+        initCompanyAdapter()
+        viewModel.getCompanyList()
+    }
+
+    private fun navigateToInformation(id: Long){
+        val direction = EmploymentFragmentDirections.actionEmploymentFragmentToInformationFragment(
+            employmentId = id
+        )
         findNavController().navigate(direction)
     }
 

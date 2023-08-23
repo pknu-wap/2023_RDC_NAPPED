@@ -2,6 +2,8 @@ package com.jaino.napped.employment
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.jaino.domain.model.Company
 import com.jaino.domain.model.Employment
 import com.jaino.domain.model.Favorite
@@ -21,14 +23,14 @@ import javax.inject.Inject
 class EmploymentViewModel @Inject constructor(
     private val employmentRepository: EmploymentRepository,
     private val companyRepository: CompanyRepository,
-    private val favoriteRepository: FavoriteRepository
+    private val favoriteRepository: FavoriteRepository,
 ): ViewModel(){
 
     private val _companyItemUiState = MutableSharedFlow<UiState<List<Company>>>()
     val companyItemUiState: SharedFlow<UiState<List<Company>>> get() = _companyItemUiState
 
-    private val _employmentItemUiState = MutableSharedFlow<UiState<List<Employment>>>()
-    val employmentItemUiState: SharedFlow<UiState<List<Employment>>> get() = _employmentItemUiState
+    private val _employmentItemUiState = MutableSharedFlow<UiState<PagingData<Employment>>>()
+    val employmentItemUiState: SharedFlow<UiState<PagingData<Employment>>> get() = _employmentItemUiState
 
     private val _employmentUiEvent = MutableSharedFlow<UiEvent<Unit>>()
     val employmentUiEvent: SharedFlow<UiEvent<Unit>>
@@ -36,12 +38,9 @@ class EmploymentViewModel @Inject constructor(
 
     fun getEmploymentList(){
         viewModelScope.launch {
-            employmentRepository.getEmploymentList(pageCount = 10, page = 2) // TODO PAGING
-                .onSuccess { list ->
-                    _employmentItemUiState.emit(UiState.Success(list))
-                }
-                .onFailure { error ->
-                    UiEvent.Failure(error)
+            employmentRepository.getEmploymentList().cachedIn(viewModelScope)
+                .collect { pagingData ->
+                    _employmentItemUiState.emit(UiState.Success(pagingData))
                 }
         }
     }
