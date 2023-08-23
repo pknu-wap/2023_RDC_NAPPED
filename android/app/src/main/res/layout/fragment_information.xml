@@ -3,6 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.jaino.napped.information.InformationViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -33,11 +38,12 @@
                     app:srcCompat="@drawable/back" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/tv_information_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:textSize="18sp"
+                    android:text="@{viewModel.employmentInformation.title}"
                     app:layout_constraintBottom_toBottomOf="@+id/employmentBackButton"
                     app:layout_constraintStart_toEndOf="@+id/employmentBackButton"
                     app:layout_constraintTop_toTopOf="@+id/employmentBackButton"
@@ -127,6 +133,7 @@
                             android:layout_marginTop="16dp"
                             android:maxLines="1"
                             android:textColor="@color/black"
+                            android:text="@{viewModel.employmentInformation.agentKind}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -139,6 +146,7 @@
                             android:maxLines="1"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
+                            android:text="@{viewModel.employmentInformation.deadline}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/guideline"
                             app:layout_constraintTop_toTopOf="parent"
@@ -151,6 +159,7 @@
                             android:layout_marginTop="16dp"
                             android:maxLines="1"
                             android:textColor="@color/black"
+                            android:text="@{viewModel.employmentInformation.workTime}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/guideline"
                             app:layout_constraintTop_toBottomOf="@id/tv_detail_deadline_title"
@@ -163,6 +172,7 @@
                             android:layout_marginTop="16dp"
                             android:maxLines="1"
                             android:textColor="@color/black"
+                            android:text="@{viewModel.employmentInformation.location}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/guideline"
                             app:layout_constraintTop_toBottomOf="@id/tv_detail_work_time_title"
@@ -175,6 +185,7 @@
                             android:layout_marginTop="16dp"
                             android:maxLines="1"
                             android:textColor="@color/black"
+                            android:text="@{viewModel.employmentInformation.career}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/guideline"
                             app:layout_constraintTop_toBottomOf="@id/tv_detail_education_title"
@@ -187,6 +198,7 @@
                             android:layout_marginTop="16dp"
                             android:maxLines="1"
                             android:textColor="@color/black"
+                            android:text="@{viewModel.employmentInformation.salary}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/guideline"
                             app:layout_constraintTop_toBottomOf="@id/tv_detail_career_title"
@@ -199,6 +211,7 @@
                             android:layout_marginTop="16dp"
                             android:maxLines="1"
                             android:textColor="@color/black"
+                            android:text="@{viewModel.employmentInformation.education}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="@+id/guideline"
                             app:layout_constraintTop_toBottomOf="@id/tv_detail_agent_kind_title"
@@ -342,6 +355,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             tools:text="TextView"
+                            android:text="@{viewModel.employmentInformation.work}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/iv_detail_work" />
@@ -352,6 +366,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             tools:text="TextView"
+                            android:text="@{viewModel.employmentInformation.title}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/iv_detail_title" />
@@ -384,6 +399,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             tools:text="TextView"
+                            android:text="@{viewModel.employmentInformation.recruitNumber}"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/iv_detail_recruit_number" />
