@@ -40,7 +40,8 @@ https://discovered-trust-803.notion.site/kid-NAPPED-c95be5407d2b49078ef784fc43b6
 - DataBinding && ViewBinding
 - Navigation Component
 - Dagger Hilt
-- Kotlin Serialization / Ktor / Ktor Xml Converter
+- Paging3
+- Kotlin Serialization / Ktor / Ktor Xml Serialization
 - Room Database
 - Firebase
     - Firestore, RealtimeDatabase
