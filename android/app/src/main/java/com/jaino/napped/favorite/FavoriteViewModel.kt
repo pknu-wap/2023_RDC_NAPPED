@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,17 +28,14 @@ class FavoriteViewModel @Inject constructor(
 
     fun getFavoriteList(){
         viewModelScope.launch {
-            repository.getFavoriteList()
-                .onSuccess { favoriteListFlow ->
-                    favoriteListFlow.collectLatest { list ->
-                        _favoriteListUiState.value = UiState.Success(list)
+            repository.getFavoriteList().collect { result ->
+                result.onSuccess {
+                        list -> _favoriteListUiState.value = UiState.Success(list)
                     }
-                }
-                .onFailure { error ->
-                    _favoriteUiEvent.emit(
-                        UiEvent.Failure(error)
-                    )
-                }
+                    .onFailure { error ->
+                        _favoriteUiEvent.emit(UiEvent.Failure(error))
+                    }
+            }
         }
     }
 
