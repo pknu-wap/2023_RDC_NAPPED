@@ -71,7 +71,7 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
 
-    // DataStore Preference, Kotlin Json Serialization
+    // Room, Room Paging
     val room_version = "2.5.2"
     ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
