@@ -1,11 +1,11 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
+    kotlin("kapt")
 }
 
 android {
@@ -18,6 +18,7 @@ android {
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -77,6 +78,9 @@ dependencies {
 
     //Material
     implementation("com.google.android.material:material:1.9.0")
+
+    //Paging3
+    implementation("androidx.paging:paging-runtime-ktx:3.2.0")
 
     //Timber
     implementation("com.jakewharton.timber:timber:5.0.1")

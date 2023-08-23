@@ -1,4 +1,4 @@
-package com.jaino.data.database
+package com.jaino.data.model.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

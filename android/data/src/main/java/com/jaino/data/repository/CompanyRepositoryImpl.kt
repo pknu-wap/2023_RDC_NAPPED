@@ -1,8 +1,7 @@
 package com.jaino.data.repository
 
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.jaino.data.model.CompanyResponse
+import com.jaino.data.model.remote.CompanyResponse
 import com.jaino.data.utils.await
 import com.jaino.domain.model.Company
 import com.jaino.domain.repository.CompanyRepository

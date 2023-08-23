@@ -39,10 +39,14 @@
     </fragment>
     <fragment
         android:id="@+id/informationFragment"
-        android:name="com.jaino.napped.employment.InformationFragment"
+        android:name="com.jaino.napped.information.InformationFragment"
         android:label="InformationFragment" >
         <action
             android:id="@+id/action_informationFragment_to_employmentFragment"
             app:destination="@id/employmentFragment" />
+        <argument
+            app:argType="long"
+            android:name="employmentId"
+            android:defaultValue="0L"/>
     </fragment>
 </navigation>

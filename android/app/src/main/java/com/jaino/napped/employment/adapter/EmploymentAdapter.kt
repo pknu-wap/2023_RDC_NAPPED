@@ -2,17 +2,17 @@ package com.jaino.napped.employment.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jaino.domain.model.Employment
 import com.jaino.domain.model.Favorite
 import com.jaino.napped.databinding.ItemEmploymentBinding
 
 class EmploymentAdapter(
-    private val onClick: () -> Unit,
+    private val onClick: (Long) -> Unit,
     private val onChecked: (Favorite) -> Unit
-): ListAdapter<Employment, EmploymentAdapter.EmploymentDataViewHolder>(callback) {
+): PagingDataAdapter<Employment, EmploymentAdapter.EmploymentDataViewHolder>(callback) {
 
     companion object{
         val callback = object : DiffUtil.ItemCallback<Employment>(){
@@ -33,7 +33,8 @@ class EmploymentAdapter(
     }
 
     override fun onBindViewHolder(holder: EmploymentDataViewHolder, position: Int) {
-        holder.bind(currentList[position])
+        val repoItem = getItem(position) ?: return
+        holder.bind(repoItem)
     }
 
     inner class EmploymentDataViewHolder(private val binding: ItemEmploymentBinding)
@@ -42,7 +43,7 @@ class EmploymentAdapter(
             binding.model = item
 
             binding.cdItemEmployment.setOnClickListener {
-                onClick()
+                onClick(item.number)
             }
 
             binding.employmentItemFavorites.setOnCheckedChangeListener{ _, isChecked ->

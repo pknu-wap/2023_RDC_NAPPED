@@ -4,6 +4,7 @@ plugins {
     id("com.android.library")
     id("dagger.hilt.android.plugin")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
     kotlin("kapt")
     kotlin("plugin.serialization")
 }
@@ -72,10 +73,12 @@ dependencies {
 
     // DataStore Preference, Kotlin Json Serialization
     val room_version = "2.5.2"
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
+    implementation("androidx.room:room-paging:$room_version")
 
+    // Paging3
+    implementation("androidx.paging:paging-common-ktx:3.2.0")
 
     // Timber
     implementation("com.jakewharton.timber:timber:5.0.1")

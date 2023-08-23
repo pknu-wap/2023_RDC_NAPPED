@@ -1,6 +1,6 @@
-package com.jaino.data.model
+package com.jaino.data.model.remote
 
-import com.jaino.domain.model.Employment
+import com.jaino.data.model.local.EmploymentEntity
 import kotlinx.serialization.Serializable
 import nl.adaptivity.xmlutil.serialization.XmlElement
 import nl.adaptivity.xmlutil.serialization.XmlSerialName
@@ -60,12 +60,16 @@ data class EmploymentResponse(
     @XmlElement(true) val gyjogeonCd: Int = 0,
     @XmlElement(true) val gyjogeonCdNm: String = "",
     @XmlElement(true) val grNs: String = "",
+    @XmlElement(true) val jggyeyeolCd: String = "",
     @XmlElement(true) val jggyeyeolCdNm: String = "",
     @XmlElement(true) val hmpgAddr: String = "",
     @XmlElement(true) val jeopsubb: String = "",
     @XmlElement(true) val jusoCd: Long = 0L,
     @XmlElement(true) val magamDt: Int = 0,
     @XmlElement(true) val mjinwonNm: String = "",
+    @XmlElement(true) val oegukeo: String = "",
+    @XmlElement(true) val oegukeoCd: String = "",
+    @XmlElement(true) val ogegsneungryeokCdNm: String = "",
     @XmlElement(true) val saeopjaDrno: Long = 0L,
     @XmlElement(true) val yeokjongBrcd: Int = 0,
     @XmlElement(true) val yeokjongBrcdNm: String = "",
@@ -74,7 +78,7 @@ data class EmploymentResponse(
     @XmlElement(true) val yuhyoYn: String = ""
 )
 
-fun EmploymentResponse.toDomain() = Employment(
+fun EmploymentResponse.toEntity() = EmploymentEntity(
     number = cygonggoNo,
     title = cyjemokNm,
     company = eopcheNm,

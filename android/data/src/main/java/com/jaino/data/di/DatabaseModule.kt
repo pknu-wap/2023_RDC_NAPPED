@@ -2,7 +2,7 @@ package com.jaino.data.di
 
 import android.content.Context
 import androidx.room.Room.databaseBuilder
-import com.jaino.data.database.FavoriteDatabase
+import com.jaino.data.database.NappedDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,17 +16,25 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun providesFavoriteDatabase(
+    fun providesNappedDatabase(
         @ApplicationContext context: Context
-    ): FavoriteDatabase {
+    ): NappedDatabase {
         return databaseBuilder(
             context = context,
-            klass = FavoriteDatabase::class.java,
+            klass = NappedDatabase::class.java,
             name = "favorite_db"
         ).build()
     }
 
     @Provides
     @Singleton
-    fun providesUserInfoDao(dataBase: FavoriteDatabase) = dataBase.favoriteDao
+    fun providesFavoriteDao(dataBase: NappedDatabase) = dataBase.favoriteDao
+
+    @Provides
+    @Singleton
+    fun providesEmploymentDao(dataBase: NappedDatabase) = dataBase.employmentDao
+
+    @Provides
+    @Singleton
+    fun providesRemoteKeyDao(dataBase: NappedDatabase) = dataBase.remoteKeyDao
 }

@@ -1,11 +1,13 @@
 package com.jaino.data.repository
 
-import com.jaino.data.database.FavoriteDao
-import com.jaino.data.database.FavoriteEntity
+import com.jaino.data.database.dao.FavoriteDao
+import com.jaino.data.model.local.FavoriteEntity
 import com.jaino.domain.model.Favorite
 import com.jaino.domain.repository.FavoriteRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -14,14 +16,11 @@ class FavoriteRepositoryImpl @Inject constructor(
     private val dao: FavoriteDao,
     private val dispatcher: CoroutineDispatcher
 ): FavoriteRepository {
-    override suspend fun getFavoriteList(): Result<Flow<List<Favorite>>> {
-        return withContext(dispatcher){
-            runCatching {
-                dao.getFavoriteList().map { entityList ->
-                    entityList.map{ it.toDomain() }
-                }
-            }
-        }
+    override fun getFavoriteList(): Flow<Result<List<Favorite>>> {
+        return dao.getFavoriteList()
+            .map { list -> Result.success(list.map{ it.toDomain() }) }
+            .catch{ e -> emit(Result.failure(e)) }
+            .flowOn(dispatcher)
     }
 
     override suspend fun insertFavorite(favorite: Favorite): Result<Unit> {

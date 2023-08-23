@@ -37,4 +37,7 @@ android {
 dependencies {
     implementation("com.google.dagger:hilt-android:2.46.1")
     kapt("com.google.dagger:hilt-compiler:2.46.1")
+
+    // Paging Common - Android Free
+    implementation("androidx.paging:paging-common-ktx:3.2.0")
 }
