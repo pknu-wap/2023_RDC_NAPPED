@@ -4,7 +4,7 @@ import com.jaino.domain.model.Favorite
 import kotlinx.coroutines.flow.Flow
 
 interface FavoriteRepository {
-    suspend fun getFavoriteList(): Result<Flow<List<Favorite>>>
+    fun getFavoriteList(): Flow<Result<List<Favorite>>>
 
     suspend fun insertFavorite(favorite: Favorite): Result<Unit>
 
