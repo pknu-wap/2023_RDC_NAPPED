@@ -1,6 +1,6 @@
 # NAPPED
 <p align="center">
-	    <img src="./image/icon.png"/ width="50%">
+	<img src="./image/icon.png"/ width="50%">
 </p>
 
 <p align="center">
@@ -55,3 +55,8 @@ https://discovered-trust-803.notion.site/kid-NAPPED-c95be5407d2b49078ef784fc43b6
   <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1668070000889/rvf5Hx764.png" width="75%"/>
 </p>
 <br><br><br>
+
+### Play Video
+<p align="center">
+  <img src="./image/napped_app_play.gif" width="25%"/>
+</p>
