@@ -1,6 +1,12 @@
 package com.jaino.data.di
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import com.jaino.data.BuildConfig
+import com.jaino.data.database.NappedDatabase
+import com.jaino.data.model.local.EmploymentEntity
+import com.jaino.data.service.EmploymentRemoteMediator
 import com.jaino.data.service.EmploymentService
 import com.jaino.data.service.EmploymentServiceImpl
 import dagger.Module
@@ -65,5 +71,22 @@ object ClientModule {
     @Singleton
     fun provideEmploymentService(client: HttpClient): EmploymentService {
         return EmploymentServiceImpl(client)
+    }
+
+    @OptIn(ExperimentalPagingApi::class)
+    @Provides
+    @Singleton
+    fun provideEmploymentPager(
+        database: NappedDatabase, employmentService: EmploymentService
+    ): Pager<Int, EmploymentEntity> {
+        return Pager(
+            config = PagingConfig(pageSize = 10),
+            remoteMediator = EmploymentRemoteMediator(
+                database, employmentService
+            ),
+            pagingSourceFactory = {
+                database.employmentDao.employmentPagingSource()
+            }
+        )
     }
 }
