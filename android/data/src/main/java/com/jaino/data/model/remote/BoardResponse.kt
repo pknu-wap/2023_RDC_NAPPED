@@ -1,4 +1,4 @@
-package com.jaino.data.model
+package com.jaino.data.model.remote
 
 import com.jaino.domain.model.Board
 

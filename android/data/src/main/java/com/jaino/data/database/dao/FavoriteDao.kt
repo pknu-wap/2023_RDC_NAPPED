@@ -1,9 +1,10 @@
-package com.jaino.data.database
+package com.jaino.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
+import com.jaino.data.model.local.FavoriteEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,8 +13,8 @@ interface FavoriteDao {
     fun getFavoriteList(): Flow<List<FavoriteEntity>>
 
     @Upsert
-    fun insertFavorite(favorite: FavoriteEntity)
+    suspend fun insertFavorite(favorite: FavoriteEntity)
 
     @Delete
-    fun deleteFavorite(favorite: FavoriteEntity)
+    suspend fun deleteFavorite(favorite: FavoriteEntity)
 }

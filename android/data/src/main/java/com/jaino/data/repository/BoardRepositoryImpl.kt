@@ -1,7 +1,7 @@
 package com.jaino.data.repository
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jaino.data.model.BoardResponse
+import com.jaino.data.model.remote.BoardResponse
 import com.jaino.data.utils.BOARD_COLLECTION
 import com.jaino.data.utils.await
 import com.jaino.domain.model.Board
