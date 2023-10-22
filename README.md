@@ -56,6 +56,10 @@ https://discovered-trust-803.notion.site/kid-NAPPED-c95be5407d2b49078ef784fc43b6
 </p>
 <br><br><br>
 
+### Trouble Shooting 
+[랜덤 개발 챌린지 : NAPPED Trouble Shooting](https://jeongjaino.tistory.com/60)
+<br><br>
+
 ### Play Video
 <p align="center">
   <img src="./image/napped_app_play.gif" width="25%"/>
